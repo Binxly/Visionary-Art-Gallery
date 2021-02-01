@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- This website template was created by: Zachery Bagley -->
+<html lang=<"en">
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Quicksand|Work+Sans&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="css/styles.css">
+	<title>Singularity</title>
+	<meta charset="utf-8">
+	<script src="scripts/myFunctions.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+	<!-- Use the header area for the website name or logo -->
+<header>
+	<div id="header">
+		
+		<img src="images/logo.png" alt="logo" class="logo" height="55" width="136">
+	
+	<!-- Use the nav area to add hyperlinks to other pages within a website -->
+		<nav>
+				
+			<ul class="no-bullets">
+				<li><a href="index.html">Gallery</a></li> &nbsp; &nbsp;
+				<li><a href="artists.html">Artist Info</a></li> &nbsp; &nbsp;
+				<li><a href="visionary.html">What is "Visionary Art"?</a></li> &nbsp; &nbsp;
+				<li><a href="contact.html">Contact Us</a></li>
+			</ul>
+			
+		</nav>
+	
+	</div>
+</header>
+
+	<!-- Use the main area to add the main content of the webpage -->
+	<main>
+	
+		<div class="container">
+  <form id="ContactForm"  onsubmit="thankYou()">
+
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="First Name...">
+	
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Last Name...">
+	
+
+    <label for="country">Country</label>
+    <select id="country" name="country">
+      <option value="usa">United States</option>
+      <option value="canada">Canada</option>
+    </select>
+	
+
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Add a message..." style="height:200px"></textarea>
+
+    <input type="submit" id="Submit" value="Submit" class="btn">
+
+  </form>
+</div>
+	</main>
+	
+	<!-- Use the footer area to add webpage footer content -->
+	<footer>
+		&copy; Copyright 2019. All Rights Reserved.<br>
+		singularitygallery@info.com
+	</footer>
+
+	</div>
+
+</body>
+</html>

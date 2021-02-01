@@ -1,0 +1,302 @@
+/* Style sheet created by: Zachery Bagley, September 20th 2019 */
+
+/* Style for body specifies a background color and font family for page
+	Complimentary color options to match background (future reference) : 2A363B , E84A5F , FF847C , FECEA8 , 99B898*/
+	
+/* Notes: Ditched CSS Grid , and instead used multiple div classes to create the layout of the images.
+Things to research: nth-child selector , object-fit use and function , box-sizing function
+References used: https://www.w3schools.com/howto/howto_js_topnav_responsive.asp , https://www.w3schools.com/howto/howto_js_topnav.asp , https://www.w3schools.com/howto/howto_js_tab_img_gallery.asp ,
+https://www.w3schools.com/css/css3_box-sizing.asp , https://www.w3schools.com/howto/howto_css_image_overlay.asp , https://www.w3schools.com/howto/howto_css_image_transparent.asp */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Font families Quicksand and Work Sans from Google Fonts API 
+ Background properties */
+body {
+  font-family: "Quicksand", "Work Sans", sans-serif;
+  color: white;
+  background-color: #2A363B;
+}
+
+/* Style for container centers the page and sets the element width */
+#header {
+	width: 80%;
+	margin: 0 auto;
+}
+
+/* Style for header specifies top and bottom margins, background color, rounded border, shadow, and alignment */
+header {
+	background: #E84A5F;
+}
+
+/* header image properties */
+.logo {
+	float: left;
+	padding: 5px 0;
+}
+
+/* fix navbar logo and image floats causing display error */
+header::after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+/* START NAV */
+
+/* settings for navbar content */
+nav {
+	float: right;
+}
+
+/* Hide bullets of nav's ul */
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* properties for navbar list items */
+nav li {
+	display: inline-block;
+	margin: 0px;
+	alignment: center;
+	padding-top: 20px;
+	
+	position: relative; /* absolute position of animated bar must be relative to items */
+}
+
+/* text properties on nav */
+nav a {
+	color: #444;
+	text-decoration: none; /* removes lines */
+	text-transform: uppercase;
+}
+
+/* navbar text on hover */
+nav a:hover {
+		color: #ff9c96;
+		
+}
+
+/* properties for animated bar on top of navbar */
+nav a::before {
+	content: '';
+	display: block;
+	height: 4px;
+	background: #2A363B;
+	
+	position: absolute;
+	top: 0;
+	width: 0%;
+	
+	transition: all ease-in-out 250ms;
+}
+
+/* properties of bar on hover */
+nav a:hover::before {
+	width: 100%;
+}
+
+/* END NAV */
+
+/* START CONTACT */
+
+/* style of form input */
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #E84A5F;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* container / contact session */
+.container {
+  border-radius: 5px;
+  background-color: #2A363B;
+  padding: 10px;
+}
+
+/* Note: Possibly split into two columns : F & L names, Country, then Subject container on the second column * /
+
+/* No float? */
+
+/* Submit button */
+.btn {
+	margin-left: 2em;
+	
+}
+
+/* Responsive layout could require split columns, will add @media below if needed */
+
+/* END CONTACT */
+
+/* START INDEX */
+
+/* heading properties */
+.heading {
+    text-align: center;
+    font-size: 2.0em;
+    letter-spacing: 1px;
+    padding: 40px;
+    color: white;
+}
+
+/* style for what is visionary art images */
+.visionary {
+	max-width: 100%;
+	height: auto;
+}
+
+/* padding and display properties for gallery */
+.gallery-image {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* properties of images in the gallery - scaling - and trans type*/
+.gallery-image img {
+  height: 250px;
+  width: 350px;
+  transform: scale(1.0);
+  transition: transform 0.4s ease;
+}
+
+/* image box properties */
+.box {
+  box-sizing: content-box;
+  margin: 10px;
+  height: 250px;
+  width: 350px;
+  overflow: hidden;
+  display: inline-block;
+  color: white;
+  position: relative;
+  background-color: white;
+}
+
+/* image title and responsive hover properties below */
+.title {
+  position: absolute;
+  bottom: 5px;
+  left: 20px;
+  opacity: 0.0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* properties fit to image boxes, set color to transparent and transition qualities */
+.transparent-box {
+  height: 250px;
+  width: 350px;
+  background-color:rgba(0, 0, 0, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: background-color 0.3s ease;
+}
+
+/* box hover zoom effect */
+.box:hover img { 
+  transform: scale(1.1);
+}
+
+/* darken images' trans. box on hover */
+.box:hover .transparent-box {
+  background-color:rgba(0, 0, 0, 0.5);
+}
+
+/* show title on hover */
+.box:hover .title {
+  transform: translateY(-20px);
+  opacity: 1.0;
+}
+
+.box:hover {
+  cursor: pointer;
+}
+
+/* nth-child specifies a size for every <p> element that is the second child of parent */
+.title > p:nth-child(2) {
+  font-size: 0.8em;
+}
+
+/* set opacity for on-hover artist text */
+.artist {
+  opacity: 0.5;
+}
+
+/* END INDEX */
+
+/* START AUDIO */
+
+/* END AUDIO */
+
+/* START VIDEO */
+
+.video {
+	padding: 1em;
+	text-align: center;
+}
+
+video {
+	border: 0.5em ridge #FFFFFF;
+	height: auto;
+	max-width: 100%;
+}
+
+/* END VIDEO */
+
+/* START ARTISTS TABLE*/
+
+/* table properties */
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #6D8995;
+}
+table a {
+	color: white;
+	text-decoration: none;
+}
+
+.visionaryart {
+	padding-top: 3em;
+	text-align: center;
+	display: inline-block;
+}
+
+footer {
+	text-align: center;
+	font-size: 10px;
+}
+/* END ARTISTS TABLE */
